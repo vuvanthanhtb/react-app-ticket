@@ -1,41 +1,46 @@
 import React from "react";
 
 const FullPageLoading = () => {
-  return (
-    <div
-      style={{
-        position: "fixed",
-        top: 0,
-        left: 0,
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        backgroundColor: "rgba(0, 0, 0, 0.5)",
-        zIndex: 9999,
-      }}
-    >
-      <div
-        style={{
-          width: "50px",
-          height: "50px",
-          border: "5px solid #f3f3f3",
-          borderTop: "5px solid #3498db",
-          borderRadius: "50%",
-          animation: "spin 1s linear infinite",
-        }}
-      />
-      <style>
-        {`
-          @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-          }
-        `}
-      </style>
+  const {
+    // isNotLoginScreen,
+    opacity, target,
+  } = props;
+
+  // const { totalLoadingProcess } = useSelector(
+  //   (state) => state.app,
+  // );
+
+  if (totalLoadingProcess === 0) {
+    // This is no on-going loading, disable loading indicator
+    return '';
+  }
+  // }
+
+  let opacityNum = 0.3;
+  if (opacity) {
+    // allow caller to change opacity
+    opacityNum = opacity;
+  }
+
+  let gridContent = document.querySelector(target);
+  if (!gridContent) {
+    gridContent = document.querySelector('#root');
+  }
+
+  const backgroundColor = {
+    backgroundColor: `rgba(128, 128, 128, ${opacityNum})`,
+  };
+
+  const loadingPanel = (
+    <div style={backgroundColor} className="lds-ellipsis">
+      <div />
+      <div />
+      <div />
+      <div />
     </div>
   );
+
+  return ReactDOM.createPortal(loadingPanel, gridContent);
 };
 
 export default FullPageLoading;
