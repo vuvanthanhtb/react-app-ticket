@@ -1,0 +1,42 @@
+/* Color Variables */
+$primary: #007bff;
+$secondary: #6c757d;
+$success: #28a745;
+$danger: #dc3545;
+$warning: #ffc107;
+$info: #17a2b8;
+$light: #f8f9fa;
+$dark: #343a40;
+$text: #212529;
+$background: #ffffff;
+
+/* Text colors */
+.text-primary {
+  color: $primary !important;
+}
+
+.text-danger {
+  color: $danger !important;
+}
+
+.text-muted {
+  color: $secondary !important;
+}
+
+/* Background colors */
+.bg-primary {
+  background-color: $primary !important;
+}
+
+.bg-danger {
+  background-color: $danger !important;
+}
+
+.bg-light {
+  background-color: $light !important;
+}
+
+/* Border colors */
+.border-primary {
+  border: 1px solid $primary !important;
+}
