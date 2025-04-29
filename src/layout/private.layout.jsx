@@ -14,7 +14,7 @@ const PrivateLayout = (props) => {
   console.log("PrivateLayout initialized", isAllow, allowedRoles);
   useEffect(() => {
     document.title = title;
-  }, []);
+  }, [title]);
 
 
   if (!currentUser) {
