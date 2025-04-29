@@ -37,10 +37,9 @@ class CacheService {
 
   isCacheCurrentUserRolesExists(allowedRoles = []) {
     const roles = this.getCurrentUserRoles();
-    
+
     roles.forEach((role) => {
       if (allowedRoles.includes(role)) {
-        console.log("role", allowedRoles, role, allowedRoles.includes(role));
         return true;
       }
     });

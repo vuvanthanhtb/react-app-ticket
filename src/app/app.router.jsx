@@ -9,8 +9,6 @@ const NotFound = lazy(() => import("./not-found.component"));
 const FullPageLoading = lazy(() => import("./full-page-loading.component"));
 
 const AppRoutes = memo(() => {
-  console.log("AppRoutes initialized");
-
   return (
     <Suspense fallback={<FullPageLoading />}>
       <Routes>

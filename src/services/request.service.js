@@ -13,9 +13,6 @@ class RequestService {
   async methodRequest(endpoint, data, method, headers = {}) {
     try {
       const body = parseRequest(this.model, data);
-      console.log(9999, body);
-      console.log(88888, this.model, data);
-      
       const response = await this.#service.methodRequest(
         endpoint,
         body,

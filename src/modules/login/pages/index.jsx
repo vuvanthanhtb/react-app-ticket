@@ -3,9 +3,7 @@ import LoginService from "../services";
 
 const service = new LoginService();
 
-const LoginPage = (props) => {
-  console.log("LoginRoutes props:", props);
-
+const LoginPage = () => {
   const login = async () => {
     const data = {
       username: "",

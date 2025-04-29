@@ -3,8 +3,6 @@ import { Routes, Route } from "react-router-dom";
 const LoginPage = lazy(() => import("../pages/index"));
 
 const LoginRoutes = (props) => {
-  console.log("LoginRoutes initialized");
-
   return (
     <Routes>
       <Route path="/" element={<LoginPage props={props} />} />

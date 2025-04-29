@@ -6,8 +6,6 @@ import ROUTES_CONFIG from "./route.config";
 const SearchTicketPage = lazy(() => import("../pages/search"));
 
 const TicketRoutes = memo((props) => {
-  console.log("TicketRoutes initialized");
-
   return (
     <Routes>
       <Route

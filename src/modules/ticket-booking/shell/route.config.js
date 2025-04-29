@@ -6,7 +6,15 @@ const ROUTES_CONFIG = {
   create: {
     path: "/create",
     roles: ["admin"],
-  }
-}
+  },
+  update: {
+    path: "/update",
+    roles: ["admin"],
+  },
+  delete: {
+    path: "/delete",
+    roles: ["admin"],
+  },
+};
 
 export default ROUTES_CONFIG;
