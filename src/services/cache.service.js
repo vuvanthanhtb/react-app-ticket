@@ -37,12 +37,12 @@ class CacheService {
 
   isCacheCurrentUserRolesExists(allowedRoles = []) {
     const roles = this.getCurrentUserRoles();
-
-    roles.forEach((role) => {
-      if (allowedRoles.includes(role)) {
+    const { length } = roles;
+    for (let i = 0; i < length; i++) {
+      if (allowedRoles.includes(roles[i])) {
         return true;
       }
-    });
+    }
     return false;
   }
 }

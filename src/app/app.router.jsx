@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 
 const LoginShell = lazy(() => import("modules/login/shell/module.routes"));
 const TicketShell = lazy(() =>
-  import("modules/ticket-booking/shell/module.routes")
+  import("modules/ticket-booking/shell/ticket-booking.routes")
 );
 const NotFound = lazy(() => import("./not-found.component"));
 const FullPageLoading = lazy(() => import("./full-page-loading.component"));

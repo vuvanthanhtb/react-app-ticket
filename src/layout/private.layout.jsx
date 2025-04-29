@@ -15,7 +15,6 @@ const PrivateLayout = (props) => {
     document.title = title;
   }, [title]);
 
-
   if (!currentUser) {
     return <Navigate to="/login" />;
   }

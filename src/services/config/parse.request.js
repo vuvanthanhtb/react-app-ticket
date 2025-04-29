@@ -2,6 +2,10 @@ import { DateTime } from "luxon";
 import { ATTR_TYPE } from "utils/attr-data-type";
 
 const parseRequest = (model, data) => {
+  if (!data) {
+    return null;
+  }
+
   const parsedData = {};
   model.forEach((item) => {
     const clientData = data[item.client];

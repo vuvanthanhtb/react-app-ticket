@@ -6,11 +6,12 @@ class ApiProxyService {
   #axios_instance = null;
   #headers = {
     "Content-Type": "application/json",
+    responseType: "json",
   };
 
   constructor() {
     this.#axios_instance = axios.create({
-      baseURL: "",
+      baseURL: import.meta.env.VITE_APP_SERVER,
       timeout: 1000,
       withCredentials: true,
     });
@@ -31,21 +32,19 @@ class ApiProxyService {
     };
 
     if (method === API_METHODS.GET) {
-      const queryString = new URLSearchParams(data).toString();
-      apiUrl = `${endpoint}?${queryString}`;
+      if (data && typeof data === "object") {
+        const queryString = new URLSearchParams(data).toString();
+        apiUrl = `${endpoint}?${queryString}`;
+      }
     } else if (method === API_METHODS.POST) {
       config["data"] = data;
     }
 
-    return this.#axios_instance
-      .post({
-        method: method,
-        url: apiUrl,
-        ...config,
-      })
-      .catch((error) => {
-        throw error;
-      });
+    return this.#axios_instance({
+      method: method,
+      url: apiUrl,
+      ...config,
+    });
   };
 
   #errorHandler = async (error) => {

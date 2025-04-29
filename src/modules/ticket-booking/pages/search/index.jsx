@@ -1,4 +1,21 @@
+import { useEffect } from "react";
+import { fetchTickets } from "../../redux/ticket-booking.slice";
+import { useAppDispatch, useAppSelector } from "../../../../redux/hook";
+
 const SearchTicketPage = () => {
+  useEffect(() => {
+    console.log("SearchTicketPage mounted");
+    
+    dispatch(fetchTickets())
+  }, []);
+
+  const dispatch = useAppDispatch();
+
+  const state = useAppSelector((state) => state.ticketBooking);
+
+  console.log("SearchTicketPage state", state);
+  
+
   return (
     <div className="search-ticket-container">
       <h1>Search Tickets</h1>
@@ -53,7 +70,7 @@ const SearchTicketPage = () => {
             </select>
           </div>
 
-          <button type="submit" className="search-btn">
+          <button type="submit" className="search-btn" >
             Search
           </button>
         </form>

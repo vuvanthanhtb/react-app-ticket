@@ -7,7 +7,7 @@ class LoginService {
   #service = null;
 
   constructor() {
-    this.#service = new RequestService(LoginModel);
+    this.#service = new RequestService();
   }
 
   login = async (data) => {
@@ -15,6 +15,7 @@ class LoginService {
       const response = await this.#service.methodRequest(
         apiPath.login,
         data,
+        LoginModel,
         API_METHODS.POST
       );
       return response;
@@ -24,7 +25,12 @@ class LoginService {
   };
 
   logout = async (data) =>
-    await this.#service.methodRequest(apiPath.logout, data, API_METHODS.POST);
+    await this.#service.methodRequest(
+      apiPath.logout,
+      data,
+      null,
+      API_METHODS.POST
+    );
 }
 
 export default LoginService;

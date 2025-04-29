@@ -1,18 +1,22 @@
+import ReactDOM from "react-dom";
 import React from "react";
 
-const FullPageLoading = () => {
+const FullPageLoading = (props) => {
   const {
     // isNotLoginScreen,
-    opacity, target,
+    opacity,
+    target,
   } = props;
 
   // const { totalLoadingProcess } = useSelector(
   //   (state) => state.app,
   // );
 
+  const totalLoadingProcess = 0;
+
   if (totalLoadingProcess === 0) {
     // This is no on-going loading, disable loading indicator
-    return '';
+    return "";
   }
   // }
 
@@ -24,7 +28,7 @@ const FullPageLoading = () => {
 
   let gridContent = document.querySelector(target);
   if (!gridContent) {
-    gridContent = document.querySelector('#root');
+    gridContent = document.querySelector("#root");
   }
 
   const backgroundColor = {
