@@ -1,4 +1,6 @@
 import axios from "axios";
+import API_METHODS from "utils/api-method";
+import { SYSTEM_BUSY } from "utils/message";
 
 class ApiProxyService {
   #axios_instance = null;
@@ -19,7 +21,7 @@ class ApiProxyService {
     );
   }
 
-  methodRequest = (endpoint, data, method,headers) => {
+  methodRequest = (endpoint, data, method, headers) => {
     let apiUrl = endpoint;
     const config = {
       headers: {
@@ -28,10 +30,10 @@ class ApiProxyService {
       },
     };
 
-    if (method === "GET") {
+    if (method === API_METHODS.GET) {
       const queryString = new URLSearchParams(data).toString();
       apiUrl = `${endpoint}?${queryString}`;
-    } else {
+    } else if (method === API_METHODS.POST) {
       config["data"] = data;
     }
 
@@ -54,7 +56,7 @@ class ApiProxyService {
     if (error && error.response) {
       return Promise.reject({
         status: error.response.status,
-        message: error.response.data.message || "Hệ thống đang bận. Vui lòng thử lại sau.",
+        message: error.response.data.message || SYSTEM_BUSY,
       });
     }
     return Promise.reject(error);

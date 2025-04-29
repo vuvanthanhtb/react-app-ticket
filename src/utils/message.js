@@ -19,3 +19,5 @@ export const QUESTION_ICO = 'Question!';
 export const INFORMATION_ICO = 'Information!';
 export const OK_ICO = 'OK!';
 export const STOP_ICO = 'StopSign!';
+
+export const SYSTEM_BUSY = 'Hệ thống đang bận. Vui lòng thử lại sau.';
