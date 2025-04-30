@@ -11,15 +11,15 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import createReducerManager from "./reducer-manager";
+import staticReducers from "./static-reducers";
 
 function configureStore(initialState = {}) {
-  const staticReducers = {};
   const reducerManager = createReducerManager(staticReducers);
 
   const persistConfig = {
     key: "root",
     storage,
-    whitelist: ["ticketBooking"], // hoặc các reducer bạn muốn lưu
+    whitelist: ["ticketBooking"],
   };
 
   const persistedReducer = persistReducer(persistConfig, reducerManager.reduce);

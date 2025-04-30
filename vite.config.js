@@ -16,6 +16,8 @@ export default defineConfig({
       app: path.resolve(__dirname, './src/app/'),
       layout: path.resolve(__dirname, './src/layout/'),
       services: path.resolve(__dirname, './src/services/'),
+      redux: path.resolve(__dirname, './src/redux/'),
+      routesConfig: path.resolve(__dirname, './src/routes-config/'),
     },
   },
 })
